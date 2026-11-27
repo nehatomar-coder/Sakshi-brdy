@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sakshi Di!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="confetti-bg" id="heartsBg"></div>
+
+    <audio id="music" loop>
+        <source src="music/song.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="musicBtn" class="music-btn">♫ Vibe On</button>
+
+    <main class="app">
+
+        <!-- PAGE 1 -->
+        <section class="page active" id="page1">
+            <div class="content pop-card-1">
+                <span class="pill">Sakshi Di's Day</span>
+                <div class="big-emoji">🎉</div>
+                <h1>Arey Sakshi Di,<br><span>Idhar Dekho!</span></h1>
+                <p class="desc">Aaj tumhara din hai... toh thoda drama aur bohot saara pyaar banta hai!</p>
+                <button class="primary" data-next>Chalo Dekhte Hain ✨</button>
+            </div>
+        </section>
+
+        <!-- PAGE 2 -->
+        <section class="page" id="page2">
+            <div class="content pop-card-2">
+                <span class="pill">Fact Check</span>
+                <div class="big-emoji">👑</div>
+                <h1>Bossy Bhi, Best Bhi</h1>
+                <div class="story-box">
+                    <p>
+                        Ghar mein hukumat chalana ho ya best advice dena —
+                        tum dono kaam bina break ke karti ho!
+                    </p>
+                    <p>
+                        Kabhi-kabhi daant bhi padti hai, par sach yeh hai ki
+                        tumhare bina sab adhoora aur boring lagta hai.
+                    </p>
+                </div>
+                <button class="primary" data-next>Aage Kya Hai? 😄</button>
+            </div>
+        </section>
+
+        <!-- PAGE 3 -->
+        <section class="page" id="page3">
+            <div class="content pop-card-3">
+                <span class="pill">Daily Dose</span>
+                <div class="big-emoji">😂</div>
+                <h1>Bina Script Ke<br><span>Comedy Show</span></h1>
+                <div class="story-box">
+                    <p>
+                        Ajeeb nicknames, achanak hasi, faltu baatein aur
+                        wo moments jo sirf hum dono samajh sakte hain.
+                    </p>
+                    <p>
+                        Aise hi hamesha hasti raho Di — jab tum hasti ho
+                        toh poore ghar ka mood set ho jaata hai!
+                    </p>
+                </div>
+                <button class="primary" data-next>Photos Dikhao 📸</button>
+            </div>
+        </section>
+
+        <!-- PAGE 4: CLICK ONE BUTTON -> FLIP/SPIN OPEN ONE FULL PHOTO -->
+        <section class="page" id="page4">
+            <div class="content photo-content pop-card-4">
+                <span class="pill">Hamari Yaadein</span>
+                <h1>Kuch Khaas Pal</h1>
+
+                <div class="memory-triggers" role="group" aria-label="Pick a photo">
+                    <button type="button" class="memory-btn" data-photo="photos/photo1.jpg" data-label="Pic 1"
+                        data-note="Yeh wali photo dekh kar apne aap smile aa jaati hai 😄" data-anim="flipY">Pic
+                        1</button>
+                    <button type="button" class="memory-btn" data-photo="photos/photo2.jpg" data-label="Pic 2"
+                        data-note="Best mood aur sabse achhi vibes ✨" data-anim="spinZoom">Pic 2</button>
+                    <button type="button" class="memory-btn" data-photo="photos/photo3.jpg" data-label="Pic 3"
+                        data-note="Iske peeche pakka koi mast kissa hai 😂" data-anim="flipX">Pic 3</button>
+                    <button type="button" class="memory-btn" data-photo="photos/photo4.jpg" data-label="Pic 4"
+                        data-note="Dil ke sabse kareeb rehne wale pal 💛" data-anim="swingIn">Pic 4</button>
+                    <button type="button" class="memory-btn" data-photo="photos/photo5.jpg" data-label="Pic 5"
+                        data-note="Sakshi Di hamesha ki tarah sabse pyaari 🌟" data-anim="spinZoom">Pic 5</button>
+                    <button type="button" class="memory-btn" data-photo="photos/photo6.jpg" data-label="Pic 6"
+                        data-note="Aur aisi bohot saari yaadein aage bhi banani hain 🎉" data-anim="flipY">Pic
+                        6</button>
+                </div>
+
+                <div class="photo-viewer">
+                    <p class="photo-placeholder" id="photoPlaceholder">
+                        Kisi bhi photo button par tap karo — woh yahin khul jayegi ✨
+                    </p>
+                    <img id="activePhoto" src="" alt="Selected memory" hidden>
+                    <span class="photo-caption" id="photoCaption"></span>
+                </div>
+
+                <button class="primary" data-next>Dil Ki Baat 💌</button>
+            </div>
+        </section>
+
+        <!-- PAGE 5 -->
+        <section class="page" id="page5">
+            <div class="content pop-card-5">
+                <span class="pill">Happy Birthday</span>
+                <div class="big-emoji">🎂</div>
+                <h1>Happy Birthday<br><span>Sakshi Di!</span></h1>
+
+                <div class="story-box final-box">
+                    <p>
+                        Aaj sirf cake nahi, tumhari saari khushiyan celebrate karne ka din hai.
+                        Jo bhi sapne tumne dekhe hain, sab poore hon — bina kisi tension ke!
+                    </p>
+                    <p>
+                        Khush raho, healthy raho, aage badhti raho,
+                        aur mujhe tang karne ke liye hamesha paas raho 😄
+                    </p>
+                    <p class="signature">Love you loads, Sakshi Di! 🎈</p>
+                </div>
+
+                <button class="primary" id="restart">Phir Se Dekho ↻</button>
+            </div>
+        </section>
+
+        <!-- NAVIGATION -->
+        <nav class="navigation">
+            <button id="backBtn" class="nav-btn">← Peeche</button>
+            <div id="dots" class="dots"></div>
+            <button id="nextBtn" class="nav-btn">Aage →</button>
+        </nav>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

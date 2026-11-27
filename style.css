@@ -1,0 +1,536 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --berry: #ff2e7e;
+    --sun: #ffb703;
+    --mint: #00b894;
+    --sky: #3a86ff;
+    --grape: #7b2cbf;
+    --ink: #231942;
+    --muted: #5e548e;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 10% 15%, rgba(255, 183, 3, 0.32), transparent 38%),
+        radial-gradient(circle at 90% 18%, rgba(0, 184, 148, 0.28), transparent 40%),
+        radial-gradient(circle at 82% 88%, rgba(255, 46, 126, 0.24), transparent 42%),
+        linear-gradient(135deg, #fffdf4, #f0f9ff 52%, #fff0f7);
+}
+
+/* FLOATING VIBES */
+.confetti-bg {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.float-heart {
+    position: absolute;
+    bottom: -30px;
+    opacity: 0.65;
+    animation: floatUp 7.5s linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* LAYOUT */
+.app {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    width: 100%;
+}
+
+.page {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    padding: 64px 16px 78px;
+    align-items: center;
+    justify-content: center;
+}
+
+.page.active {
+    display: flex;
+    animation: bounceIn 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes bounceIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.content {
+    text-align: center;
+    width: min(640px, 95vw);
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 26px 28px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 3px solid var(--ink);
+    box-shadow: 7px 7px 0px var(--ink);
+    scrollbar-width: none;
+}
+
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+/* DISTINCT COLORFUL CARD ACCENTS */
+.pop-card-1 {
+    box-shadow: 8px 8px 0px var(--berry);
+}
+
+.pop-card-2 {
+    background: linear-gradient(180deg, #fff9e6, #ffffff);
+    box-shadow: 8px 8px 0px var(--sun);
+}
+
+.pop-card-3 {
+    background: linear-gradient(180deg, #e8fff9, #ffffff);
+    box-shadow: 8px 8px 0px var(--mint);
+}
+
+.pop-card-4 {
+    background: linear-gradient(180deg, #eef6ff, #ffffff);
+    box-shadow: 8px 8px 0px var(--sky);
+}
+
+.pop-card-5 {
+    background: linear-gradient(180deg, #f7edff, #ffffff);
+    box-shadow: 8px 8px 0px var(--grape);
+}
+
+.pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 5px 14px;
+    border-radius: 999px;
+    border: 2px solid var(--ink);
+    background: var(--sun);
+    color: var(--ink);
+    margin-bottom: 10px;
+}
+
+.pop-card-3 .pill {
+    background: #80ffdb;
+}
+
+.pop-card-4 .pill {
+    background: #a8dadc;
+}
+
+.pop-card-5 .pill {
+    background: #ff8fab;
+}
+
+.big-emoji {
+    font-size: 48px;
+    line-height: 1.15;
+    margin: 4px 0 8px;
+    display: inline-block;
+    animation: wiggle 2.2s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(-4deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(4deg) scale(1.08);
+    }
+}
+
+h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    color: var(--ink);
+    font-size: clamp(28px, 4.8vw, 42px);
+    line-height: 1.18;
+    margin-bottom: 10px;
+}
+
+h1 span {
+    color: var(--berry);
+}
+
+.pop-card-3 h1 span {
+    color: #00896f;
+}
+
+.pop-card-5 h1 span {
+    color: var(--grape);
+}
+
+.desc {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    max-width: 430px;
+    margin: 0 auto 20px;
+    line-height: 1.65;
+}
+
+.story-box {
+    text-align: left;
+    background: #ffffff;
+    border: 2px solid var(--ink);
+    border-radius: 20px;
+    padding: 18px 20px;
+    margin: 12px 0 20px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--ink);
+}
+
+.story-box p+p {
+    margin-top: 10px;
+}
+
+.final-box {
+    font-size: 13.5px;
+}
+
+.signature {
+    font-family: 'Fredoka', sans-serif;
+    color: var(--berry);
+    font-size: 19px;
+    margin-top: 12px;
+}
+
+/* PLAYFUL BUTTON */
+.primary {
+    border: 2.5px solid var(--ink);
+    color: #ffffff;
+    background: var(--berry);
+    padding: 12px 26px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 4px 4px 0px var(--ink);
+    transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+
+.primary:hover {
+    background: #e01e68;
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0px var(--ink);
+}
+
+.primary:active {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0px var(--ink);
+}
+
+/* PHOTO BUTTONS + SINGLE FULL PHOTO VIEWER WITH FLIP/SPIN */
+.photo-content {
+    width: min(680px, 95vw);
+    padding: 22px 24px;
+}
+
+.memory-triggers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 12px 0 14px;
+}
+
+.memory-btn {
+    border: 2px solid var(--ink);
+    background: #ffffff;
+    color: var(--ink);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px var(--ink);
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.memory-btn:hover {
+    background: var(--sun);
+    transform: translateY(-2px);
+}
+
+.memory-btn.active {
+    background: var(--mint);
+    color: #ffffff;
+    box-shadow: 2px 2px 0px var(--ink);
+}
+
+.photo-viewer {
+    perspective: 900px;
+    min-height: 245px;
+    max-height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    margin-bottom: 16px;
+    border-radius: 20px;
+    background: #ffffff;
+    border: 2.5px solid var(--ink);
+}
+
+.photo-placeholder {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--muted);
+    max-width: 340px;
+    line-height: 1.65;
+}
+
+.photo-viewer img {
+    max-width: 100%;
+    max-height: 255px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 14px;
+    background: #fffdf4;
+    transform-style: preserve-3d;
+}
+
+/* PHOTO ENTRANCE EFFECTS (FLIP / SPIN / SWING) */
+.photo-viewer img.anim-flipY {
+    animation: flipOpenY 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.photo-viewer img.anim-flipX {
+    animation: flipOpenX 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.photo-viewer img.anim-spinZoom {
+    animation: spinZoomOpen 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.photo-viewer img.anim-swingIn {
+    animation: swingOpen 0.68s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes flipOpenY {
+    from {
+        opacity: 0;
+        transform: rotateY(-135deg) scale(0.75);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotateY(0deg) scale(1);
+    }
+}
+
+@keyframes flipOpenX {
+    from {
+        opacity: 0;
+        transform: rotateX(115deg) scale(0.75);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotateX(0deg) scale(1);
+    }
+}
+
+@keyframes spinZoomOpen {
+    from {
+        opacity: 0;
+        transform: rotate(-190deg) scale(0.45);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+@keyframes swingOpen {
+    from {
+        opacity: 0;
+        transform: rotate(-18deg) translateY(22px) scale(0.84);
+    }
+
+    65% {
+        transform: rotate(5deg) scale(1.02);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(0deg) translateY(0) scale(1);
+    }
+}
+
+.photo-caption {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--grape);
+}
+
+/* BOTTOM NAVIGATION */
+.navigation {
+    position: fixed;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    z-index: 10;
+}
+
+.nav-btn {
+    background: #ffffff;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    padding: 8px 16px;
+    color: var(--ink);
+    font-family: 'Fredoka', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px var(--ink);
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: var(--sun);
+}
+
+.nav-btn:disabled {
+    opacity: 0.35;
+    cursor: default;
+    box-shadow: none;
+}
+
+.dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border: 2px solid var(--ink);
+    background: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.dot.active {
+    background: var(--berry);
+    transform: scale(1.28);
+}
+
+/* MUSIC BUTTON */
+.music-btn {
+    position: fixed;
+    z-index: 20;
+    top: 14px;
+    right: 14px;
+    border: 2px solid var(--ink);
+    background: var(--sun);
+    color: var(--ink);
+    padding: 8px 15px;
+    border-radius: 999px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px var(--ink);
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.music-btn:hover {
+    background: #ffd166;
+    transform: translateY(-1px);
+}
+
+/* CLICK SPARKLES */
+.spark {
+    position: fixed;
+    z-index: 99;
+    pointer-events: none;
+    animation: sparkle 0.7s ease forwards;
+}
+
+@keyframes sparkle {
+    from {
+        transform: translateY(0) scale(0.5);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-55px) scale(1.35);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .page {
+        padding: 58px 10px 72px;
+    }
+
+    .content {
+        padding: 20px 15px;
+        width: 96vw;
+        border-radius: 22px;
+        box-shadow: 5px 5px 0px var(--ink);
+    }
+
+    .story-box {
+        padding: 14px 16px;
+        font-size: 13px;
+    }
+
+    .photo-viewer {
+        min-height: 215px;
+        max-height: 300px;
+    }
+
+    .photo-viewer img {
+        max-height: 220px;
+    }
+}
